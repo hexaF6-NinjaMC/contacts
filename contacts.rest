@@ -56,25 +56,25 @@ DELETE http://localhost:8080/:id1 HTTP/1.1
 ### ============================================================ ###
 ### Render
 ###
-GET https://cse341-68j4.onrender.com/ HTTP/1.1
+GET https://contacts-ia6n.onrender.com/ HTTP/1.1
 
 ###
-POST https://cse341-68j4.onrender.com/ HTTP/1.1
+POST https://contacts-ia6n.onrender.com/ HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "email@doe.com",
-    "favoriteColor": "(blank)",
-    "birthday": "(invalid date)"
+    "firstName": "Maggie",
+    "lastName": "Bechtel",
+    "email": "magstergirlygirl@gmail.com",
+    "favoriteColor": "red",
+    "birthday": "10/05/1998"
 }
 
 ###
-GET https://cse341-68j4.onrender.com/65e126f4cc5aa45e0551aa86 HTTP/1.1
+GET https://contacts-ia6n.onrender.com/65e142aab529bf13623aa337 HTTP/1.1
 
 ###
-PUT https://cse341-68j4.onrender.com/:id1 HTTP/1.1
+PUT https://contacts-ia6n.onrender.com/65e14383b529bf13623aa338 HTTP/1.1
 content-type: application/json
 
 {
@@ -86,25 +86,28 @@ content-type: application/json
 }
 
 ###
-POST https://cse341-68j4.onrender.com/ HTTP/1.1
+POST https://contacts-ia6n.onrender.com/ HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "email": "janet@doe.com",
+    "firstName": "Richelle",
+    "lastName": "Fowler",
+    "email": "richellefowler5@gmail.com",
     "favoriteColor": "pretty colors",
     "birthday": "NT/4U/2000"
 }
 
 ###
-GET https://cse341-68j4.onrender.com/ HTTP/1.1
+GET https://contacts-ia6n.onrender.com/ HTTP/1.1
 
 ###
-GET https://cse341-68j4.onrender.com/:id2 HTTP/1.1
+GET https://contacts-ia6n.onrender.com/65e14383b529bf13623aa338 HTTP/1.1
 
 ###
-DELETE https://cse341-68j4.onrender.com/:id2 HTTP/1.1
+DELETE https://contacts-ia6n.onrender.com/65e14383b529bf13623aa338 HTTP/1.1
 
 ###
-DELETE https://cse341-68j4.onrender.com/:id1 HTTP/1.1
+DELETE https://contacts-ia6n.onrender.com/65e126f4cc5aa45e0551aa86 HTTP/1.1
+
+###
+GET https://contacts-ia6n.onrender.com/ HTTP/1.1
