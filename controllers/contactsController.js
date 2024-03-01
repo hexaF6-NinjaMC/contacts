@@ -1,5 +1,4 @@
 const mongodb = require('../db/connect.js');
-const objectId = require('mongodb').ObjectId;
 const createObjectId = require('mongodb').ObjectId.createFromHexString;
 
 const getContact = async (req, res) => {
@@ -46,7 +45,6 @@ const updateContact = async (req, res) => {
         birthday: req.body.birthday
     };
     const response = await mongodb.getDb().db().collection('contacts').replaceOne({ _id: userId }, user);
-    console.log(response);
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
@@ -57,7 +55,6 @@ const updateContact = async (req, res) => {
 const deleteContact = async (req, res) => {
     const userId = createObjectId(req.params.id);
     const response = await mongodb.getDb().db().collection('contacts').deleteOne({ _id: userId }, true);
-    console.log(response);
     if (response.deletedCount > 0) {
         res.status(204).send();
     } else {
