@@ -1,7 +1,7 @@
 const mongodb = require('../db/connect.js');
 const objectId = require('mongodb').ObjectId;
 
-const getContact = async (req, res, next) => {
+const getContact = async (req, res) => {
     const userId = objectId.createFromHexString(req.params.id);
     const result = await mongodb.getDb().db().collection('contacts').find({ _id:  userId });
     result.toArray().then((lists) => {
@@ -10,7 +10,7 @@ const getContact = async (req, res, next) => {
     });
 };
 
-const getAllContacts = async (req, res, next) => {
+const getAllContacts = async (req, res) => {
     const result = await mongodb.getDb().db().collection('contacts').find();
     result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
@@ -18,7 +18,7 @@ const getAllContacts = async (req, res, next) => {
     });
 };
 
-const createContact = async (req, res, next) => {
+const createContact = async (req, res) => {
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -35,7 +35,7 @@ const createContact = async (req, res, next) => {
     }
 };
 
-const updateContact = async (req, res, next) => {
+const updateContact = async (req, res) => {
     const userId = objectId.createFromHexString(req.params.id);
     const user = {
         firstName: req.body.firstName,
@@ -53,7 +53,7 @@ const updateContact = async (req, res, next) => {
     }
 };
 
-const deleteContact = async (req, res, next) => {
+const deleteContact = async (req, res) => {
     const userId = objectId.createFromHexString(req.params.id);
     const response = await mongodb.getDb().db().collection('contacts').deleteOne({ _id: userId }, true);
     console.log(response);
