@@ -2,7 +2,7 @@ const mongodb = require('../db/connect.js');
 const objectId = require('mongodb').ObjectId;
 
 const getContact = async (req, res, next) => {
-    const userId = objectId.createFromTime(req.params.id);
+    const userId = objectId.createFromHexString(req.params.id);
     const result = await mongodb.getDb().db().collection('contacts').find({ _id:  userId });
     result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
@@ -36,7 +36,7 @@ const createContact = async (req, res, next) => {
 };
 
 const updateContact = async (req, res, next) => {
-    const userId = objectId.createFromTime(req.params.id);
+    const userId = objectId.createFromHexString(req.params.id);
     const user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -54,7 +54,7 @@ const updateContact = async (req, res, next) => {
 };
 
 const deleteContact = async (req, res, next) => {
-    const userId = objectId.createFromTime(req.params.id);
+    const userId = objectId.createFromHexString(req.params.id);
     const response = await mongodb.getDb().db().collection('contacts').deleteOne({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
