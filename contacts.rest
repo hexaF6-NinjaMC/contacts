@@ -7,15 +7,15 @@ POST http://localhost:8080/ HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "John",
-    "lastName": "Doe",
-    "email": "email@doe.com",
-    "favoriteColor": "(blank)",
-    "birthday": "(invalid date)"
+    "firstName": "Aaron",
+    "lastName": "Bechtel",
+    "email": "bechtel.aaron22@gmail.com",
+    "favoriteColor": "cyan",
+    "birthday": "10/19/1997"
 }
 
 ###
-GET http://localhost:8080/65e126f4cc5aa45e0551aa86 HTTP/1.1
+GET http://localhost:8080/:id1 HTTP/1.1
 
 ###
 PUT http://localhost:8080/:id1 HTTP/1.1

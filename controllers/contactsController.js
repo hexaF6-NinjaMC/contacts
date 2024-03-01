@@ -1,9 +1,10 @@
 const mongodb = require('../db/connect.js');
 const objectId = require('mongodb').ObjectId;
+const createObjectId = require('mongodb').ObjectId.createFromHexString;
 
 const getContact = async (req, res) => {
-    const userId = new objectId(req.params.id);
-    const result = await mongodb.getDb().db().collection('contacts').find({ _id:  userId });
+    const userId = createObjectId(req.params.id);
+    const result = await mongodb.getDb().db().collection('contacts').find({ _id: userId });
     result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists[0]);
@@ -36,7 +37,7 @@ const createContact = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
-    const userId = new objectId(req.params.id);
+    const userId = createObjectId(req.params.id);
     const user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -54,7 +55,7 @@ const updateContact = async (req, res) => {
 };
 
 const deleteContact = async (req, res) => {
-    const userId = new objectId(req.params.id);
+    const userId = createObjectId(req.params.id);
     const response = await mongodb.getDb().db().collection('contacts').deleteOne({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
