@@ -1,0 +1,110 @@
+### localhost:8080
+###
+GET http://localhost:8080/ HTTP/1.1
+
+###
+POST http://localhost:8080/ HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "email@doe.com",
+    "favoriteColor": "(blank)",
+    "birthday": "(invalid date)"
+}
+
+###
+GET http://localhost:8080/:id1 HTTP/1.1
+
+###
+PUT http://localhost:8080/:id1 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "email@doe.com",
+    "favoriteColor": "dark colors",
+    "birthday": "NT/4U/1999"
+}
+
+###
+POST http://localhost:8080/ HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janet@doe.com",
+    "favoriteColor": "pretty colors",
+    "birthday": "NT/4U/2000"
+}
+
+###
+GET http://localhost:8080/ HTTP/1.1
+
+###
+GET http://localhost:8080/:id2 HTTP/1.1
+
+###
+DELETE http://localhost:8080/:id2 HTTP/1.1
+
+###
+DELETE http://localhost:8080/:id1 HTTP/1.1
+
+### ============================================================ ###
+### Render
+###
+GET https://cse341-68j4.onrender.com/ HTTP/1.1
+
+###
+POST https://cse341-68j4.onrender.com/ HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "email@doe.com",
+    "favoriteColor": "(blank)",
+    "birthday": "(invalid date)"
+}
+
+###
+GET https://cse341-68j4.onrender.com/65e126f4cc5aa45e0551aa86 HTTP/1.1
+
+###
+PUT https://cse341-68j4.onrender.com/:id1 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "email@doe.com",
+    "favoriteColor": "dark colors",
+    "birthday": "NT/4U/1999"
+}
+
+###
+POST https://cse341-68j4.onrender.com/ HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janet@doe.com",
+    "favoriteColor": "pretty colors",
+    "birthday": "NT/4U/2000"
+}
+
+###
+GET https://cse341-68j4.onrender.com/ HTTP/1.1
+
+###
+GET https://cse341-68j4.onrender.com/:id2 HTTP/1.1
+
+###
+DELETE https://cse341-68j4.onrender.com/:id2 HTTP/1.1
+
+###
+DELETE https://cse341-68j4.onrender.com/:id1 HTTP/1.1
