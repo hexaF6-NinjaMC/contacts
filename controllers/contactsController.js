@@ -2,6 +2,9 @@ const mongodb = require('../db/connect.js');
 const createObjectId = require('mongodb').ObjectId.createFromHexString;
 
 const getContact = async (req, res) => {
+    // #swagger.tags = ['Contacts']
+    // #swagger.description='Get contact by ID on server root'
+    // #swagger.parameters['id'] = {description: 'HexString of 24 characters', type: 'string'}
     const userId = createObjectId(req.params.id);
     const result = await mongodb.getDb().db().collection('contacts').find({ _id: userId });
     result.toArray().then((lists) => {
@@ -11,6 +14,8 @@ const getContact = async (req, res) => {
 };
 
 const getAllContacts = async (req, res) => {
+    // #swagger.tags = ['Contacts']
+    // #swagger.description='Get all contacts on server root'
     const result = await mongodb.getDb().db().collection('contacts').find();
     result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
@@ -19,6 +24,8 @@ const getAllContacts = async (req, res) => {
 };
 
 const createContact = async (req, res) => {
+    // #swagger.tags = ['Contacts']
+    // #swagger.description='Create contact on server root'
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -36,6 +43,9 @@ const createContact = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
+    // #swagger.tags = ['Contacts']
+    // #swagger.description = 'Update contact by ID on server root'
+    // #swagger.parameters['id'] = {description: 'HexString of 24 characters', type: 'string'}
     const userId = createObjectId(req.params.id);
     const user = {
         firstName: req.body.firstName,
@@ -53,6 +63,9 @@ const updateContact = async (req, res) => {
 };
 
 const deleteContact = async (req, res) => {
+    // #swagger.tags = ['Contacts']
+    // #swagger.description='Delete contact by ID on server root'
+    // #swagger.parameters['id'] = {description: 'HexString of 24 characters', type: 'string'}
     const userId = createObjectId(req.params.id);
     const response = await mongodb.getDb().db().collection('contacts').deleteOne({ _id: userId }, true);
     if (response.deletedCount > 0) {
@@ -62,10 +75,24 @@ const deleteContact = async (req, res) => {
     }
 };
 
+const deleteAll = async (req, res) => {
+    // #swagger.tags = ['Contacts']
+    // #swagger.description='Delete all contacts on server root.'
+    const response = await mongodb.getDb().db().collection('contacts').deleteMany({});
+    if (response.deletedCount > 0) {
+        res.status(204).send({
+            "message": `Deleted ${deletedCount} contacts successfully.`
+        });
+    } else {
+        res.status(500).json(response.error || 'Some error occurred while deleting all contacts.');
+    }
+};
+
 module.exports = {
     getContact,
     getAllContacts,
     createContact,
     updateContact,
-    deleteContact
+    deleteContact,
+    deleteAll
 };
