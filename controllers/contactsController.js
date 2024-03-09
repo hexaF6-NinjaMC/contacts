@@ -81,7 +81,7 @@ const deleteAll = async (req, res) => {
     const response = await mongodb.getDb().db().collection('contacts').deleteMany({});
     if (response.deletedCount > 0) {
         res.status(204).send({
-            "message": `Deleted ${deletedCount} contacts successfully.`
+            "message": `Deleted ${response.deletedCount} contacts successfully.`
         });
     } else {
         res.status(500).json(response.error || 'Some error occurred while deleting all contacts.');
