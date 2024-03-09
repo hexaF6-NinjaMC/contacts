@@ -1,10 +1,15 @@
 ### =========================================================== ###
-### localhost:8080
-###
-GET http://localhost:8080/ HTTP/1.1
+### localhost:8080/contacts
+### Replace {:id} with the repective HexString UUID
+### =========================================================== ###
+
 
 ###
-POST http://localhost:8080/ HTTP/1.1
+### Should start with '[]'
+GET http://localhost:8080/contacts HTTP/1.1
+
+###
+POST http://localhost:8080/contacts HTTP/1.1
 content-type: application/json
 
 {
@@ -16,10 +21,12 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:8080/65e151deec9a15a38013027b HTTP/1.1
+### Replace {:id} with the repective HexString UUID
+GET http://localhost:8080/contacts/:id HTTP/1.1
 
 ###
-PUT http://localhost:8080/65e151deec9a15a38013027b HTTP/1.1
+### Replace {:id} with the repective HexString UUID
+PUT http://localhost:8080/contacts/:id HTTP/1.1
 content-type: application/json
 
 {
@@ -31,7 +38,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:8080/ HTTP/1.1
+POST http://localhost:8080/contacts HTTP/1.1
 content-type: application/json
 
 {
@@ -43,39 +50,52 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:8080/ HTTP/1.1
+### Should return JSON with 2 items
+GET http://localhost:8080/contacts HTTP/1.1
 
 ###
-GET http://localhost:8080/65e151f4ec9a15a38013027c HTTP/1.1
+### Replace {:id} with the repective HexString UUID
+GET http://localhost:8080/contacts/:id HTTP/1.1
 
 ###
-DELETE http://localhost:8080/65e151f4ec9a15a38013027c HTTP/1.1
+### Replace {:id} with the repective HexString UUID
+DELETE http://localhost:8080/contacts/:id HTTP/1.1
 
 ###
-DELETE http://localhost:8080/65e151deec9a15a38013027b HTTP/1.1
+### Delete all documents within collection
+DELETE http://localhost:8080/contacts HTTP/1.1
+
+###
+### Should end with '[]'
+GET http://localhost:8080/contacts HTTP/1.1
+
 
 ### =========================================================== ###
-### Render
+### Render - https://contacts-ia6n.onrender.com/contacts
 ###
-GET https://contacts-ia6n.onrender.com/ HTTP/1.1
+
+### Should start with '[]'
+GET https://contacts-ia6n.onrender.com/contacts HTTP/1.1
 
 ###
-POST https://contacts-ia6n.onrender.com/ HTTP/1.1
+POST https://contacts-ia6n.onrender.com/contacts HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Maggie",
+    "firstName": "Aaron",
     "lastName": "Bechtel",
-    "email": "magstergirlygirl@gmail.com",
-    "favoriteColor": "red",
-    "birthday": "10/05/1998"
+    "email": "bechtel.aaron22@gmail.com",
+    "favoriteColor": "Cyan",
+    "birthday": "10/19/1997"
 }
 
 ###
-GET https://contacts-ia6n.onrender.com/65e14f5cec9a15a38013027a HTTP/1.1
+### Replace {:id} with the repective HexString UUID
+GET https://contacts-ia6n.onrender.com/contacts/:id HTTP/1.1
 
 ###
-PUT https://contacts-ia6n.onrender.com/65e14f5cec9a15a38013027a HTTP/1.1
+### Replace {:id} with the repective HexString UUID
+PUT https://contacts-ia6n.onrender.com/contacts/:id HTTP/1.1
 content-type: application/json
 
 {
@@ -87,7 +107,7 @@ content-type: application/json
 }
 
 ###
-POST https://contacts-ia6n.onrender.com/ HTTP/1.1
+POST https://contacts-ia6n.onrender.com/contacts HTTP/1.1
 content-type: application/json
 
 {
@@ -99,16 +119,21 @@ content-type: application/json
 }
 
 ###
-GET https://contacts-ia6n.onrender.com/ HTTP/1.1
+### Should return JSON with 2 items
+GET https://contacts-ia6n.onrender.com/contacts HTTP/1.1
 
 ###
-GET https://contacts-ia6n.onrender.com/65e14f57ec9a15a380130279 HTTP/1.1
+### Replace {:id} with the repective HexString UUID
+GET https://contacts-ia6n.onrender.com/contacts/:id HTTP/1.1
 
 ###
-DELETE https://contacts-ia6n.onrender.com/65e14f57ec9a15a380130279 HTTP/1.1
+### Replace {:id} with the repective HexString UUID
+DELETE https://contacts-ia6n.onrender.com/contacts/:id HTTP/1.1
 
 ###
-DELETE https://contacts-ia6n.onrender.com/65e14f5cec9a15a38013027a HTTP/1.1
+### Delete all documents within collection
+DELETE https://contacts-ia6n.onrender.com/contacts/ HTTP/1.1
 
 ###
-GET https://contacts-ia6n.onrender.com/ HTTP/1.1
+### Should end with '[]'
+GET https://contacts-ia6n.onrender.com/contacts HTTP/1.1

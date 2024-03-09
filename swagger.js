@@ -1,4 +1,4 @@
-const swaggerAutogen = require('swagger-autogen')({openapi: '3.1.0'});
+const swaggerAutogen = require('swagger-autogen')({openapi: '3.0.0'});
 
 const doc = {
   info: {
@@ -13,6 +13,11 @@ const doc = {
     {
         url: 'https://contacts-ia6n.onrender.com/',
         description: 'Render URL'
+    }
+  ],
+  paths: [
+    {
+        servers: {}
     }
   ]
 };
