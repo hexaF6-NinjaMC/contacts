@@ -17,7 +17,8 @@ app
         next();
     })
     .use('/', contactRoutes)
-    .use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument, swaggerOptions));
+    .use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument, swaggerOptions))
+    .use(express.static('./frontend', {root: __dirname}));
 
 mongodb.initDb((err) => {
     if (err) {
