@@ -14,11 +14,6 @@ const doc = {
         url: 'https://contacts-ia6n.onrender.com/',
         description: 'Render URL'
     }
-  ],
-  paths: [
-    {
-        servers: {}
-    }
   ]
 };
 
