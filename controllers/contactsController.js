@@ -47,18 +47,18 @@ const updateContact = async (req, res) => {
     // #swagger.description = 'Update contact by ID on server root'
     // #swagger.parameters['id'] = {description: 'HexString of 24 characters', type: 'string'}
     const userId = createObjectId(req.params.id);
-    const user = {
+    const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         favoriteColor: req.body.favoriteColor,
         birthday: req.body.birthday
     };
-    const response = await mongodb.getDb().db().collection('contacts').replaceOne({ _id: userId }, user);
+    const response = await mongodb.getDb().db().collection('contacts').replaceOne({ _id: userId }, contact);
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
-        res.status(500).json(response.error || 'Some error occurred while updating the user.');
+        res.status(500).json(response.error || 'Some error occurred while updating the contact.');
     }
 };
 
