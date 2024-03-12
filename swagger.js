@@ -7,12 +7,12 @@ const doc = {
   },
   servers: [
     {
-        url: 'http://localhost:8080',
-        description: 'localhost:8080'
-    },
-    {
         url: 'https://contacts-ia6n.onrender.com/',
         description: 'Render URL'
+    },
+    {
+        url: 'http://localhost:8080',
+        description: 'localhost:8080'
     }
   ]
 };

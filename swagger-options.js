@@ -1,5 +1,6 @@
 const options = {
-    explorer: true
+    explorer: true,
+    customSiteTitle: 'Swagger UI - Contacts API'
 };
 
 module.exports = options;
